@@ -4,6 +4,10 @@ Server-side changes for `freepeace13/inertia-live-laravel`. Client changes are t
 
 ## Unreleased
 
+## 0.1.0 - 2026-10-07
+
+First release under the `freepeace13/inertia-live-laravel` name. The "Changed" entries below are relative to the earlier `inertia-live-projections` package.
+
 ### Changed (breaking, pre-1.0)
 - Renamed from `freepeace13/inertia-live-projections` to `freepeace13/inertia-live-laravel`; extracted from the monorepo with history preserved.
 - Signal versions are a per-topic sequence taken at flush time, not the stored event id. Fixes signals being dropped when several projectors, or concurrent queue workers, handle one topic. `CursorRepository::put()` becomes `next()`; `Change` no longer carries a version; `LiveChangeBroadcast` takes it as its second argument. The cursor store must support atomic `increment`. The `force` flag on replay signals is removed.
@@ -23,3 +27,6 @@ Server-side changes for `freepeace13/inertia-live-laravel`. Client changes are t
 ### Added
 - `#[LiveTopic]`, `EmitsLiveChanges`, after-commit `ChangeFlusher`, private-channel `LiveChangeBroadcast`, cache-backed cursors, `Live::authorize()`, the Inertia `->live()` macro and `_live` prop, replay suppression, `Live::fake()`.
 - CI: PHP 8.3–8.5 × Laravel 12–13 × Inertia 2–3.
+
+[Unreleased]: https://github.com/freepeace13/inertia-live-laravel/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/freepeace13/inertia-live-laravel/releases/tag/v0.1.0
