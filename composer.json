@@ -1,8 +1,10 @@
 {
-    "name": "freepeace13/inertia-live-projections",
+    "name": "freepeace13/inertia-live-laravel",
     "description": "Live Inertia pages driven by Spatie Event Sourcing projections.",
     "license": "MIT",
     "type": "library",
+    "keywords": ["laravel", "inertia", "event-sourcing", "realtime", "broadcasting"],
+    "homepage": "https://github.com/freepeace13/inertia-live-laravel",
     "require": {
         "php": "^8.3",
         "illuminate/support": "^12.0 || ^13.0",

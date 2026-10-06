@@ -1,0 +1,59 @@
+name: CI
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    name: Lint and static analysis
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          coverage: none
+      - run: composer update --prefer-dist --no-interaction
+      - run: composer lint
+      - run: composer analyse
+
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        php: ['8.3', '8.4', '8.5']
+        laravel: ['12.*', '13.*']
+        inertia: ['2.*', '3.*']
+    name: PHP ${{ matrix.php }} / Laravel ${{ matrix.laravel }} / Inertia ${{ matrix.inertia }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: none
+      - run: >
+          composer require
+          "illuminate/support:${{ matrix.laravel }}"
+          "inertiajs/inertia-laravel:${{ matrix.inertia }}"
+          --no-interaction --no-update
+      - run: composer update --prefer-dist --no-interaction
+      - run: vendor/bin/pest
+
+  lowest:
+    runs-on: ubuntu-latest
+    name: Lowest supported dependencies
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          coverage: none
+      - run: composer update --prefer-lowest --prefer-stable --prefer-dist --no-interaction
+      - run: vendor/bin/pest
