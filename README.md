@@ -1,6 +1,11 @@
-# freepeace13/inertia-live-laravel
+# Inertia Live for Laravel: real-time Inertia.js pages
 
-Live Inertia pages driven by [Spatie Event Sourcing](https://github.com/spatie/laravel-event-sourcing) projections. Declare once on the server which projection changes affect which page props; the package broadcasts a small "topic changed" signal and the client reloads only the affected props through the page's own controller.
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/freepeace13/inertia-live-laravel.svg)](https://packagist.org/packages/freepeace13/inertia-live-laravel)
+[![Total Downloads](https://img.shields.io/packagist/dt/freepeace13/inertia-live-laravel.svg)](https://packagist.org/packages/freepeace13/inertia-live-laravel)
+[![CI](https://github.com/freepeace13/inertia-live-laravel/actions/workflows/ci.yml/badge.svg)](https://github.com/freepeace13/inertia-live-laravel/actions/workflows/ci.yml)
+[![License](https://img.shields.io/packagist/l/freepeace13/inertia-live-laravel.svg)](LICENSE)
+
+`freepeace13/inertia-live-laravel` adds real-time, live-updating [Inertia.js](https://inertiajs.com) pages to Laravel, driven by [Spatie Event Sourcing](https://github.com/spatie/laravel-event-sourcing) projections. Declare once on the server which projection changes affect which page props; the package broadcasts a small "topic changed" signal and the client reloads only the affected props through the page's own controller.
 
 The socket never carries model data, so policies, hidden attributes and per-user fields keep working unchanged.
 
