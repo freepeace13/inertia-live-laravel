@@ -2,14 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Freepeace13\InertiaLive;
+namespace InertiaLive;
 
-use Freepeace13\InertiaLive\Cursor\CursorRepository;
 use Illuminate\Contracts\Config\Repository as Config;
+use Illuminate\Support\Facades\Route;
+use InertiaLive\Cursor\CursorRepository;
 
 /**
  * The `_live` prop for one Inertia response. Resolved lazily so every render,
  * including partial reloads, reads fresh cursors.
+ *
+ * @internal
  */
 final class LiveBindings
 {
@@ -31,13 +34,13 @@ final class LiveBindings
     }
 
     /**
-     * @return array{bindings: list<array{topic: string, channel: string, props: list<string>, cursor: int, public: bool}>}
+     * @return array{bindings: list<array{topic: string, channel: string, props: list<string>, cursor: int, public: bool}>, cursors?: string}
      */
     public function __invoke(): array
     {
         $prefix = (string) $this->config->get('inertia-live.channel_prefix', 'live');
 
-        return [
+        $live = [
             'bindings' => array_map(fn (array $binding) => [
                 'topic' => $binding['topic'],
                 'channel' => $prefix.'.'.$binding['topic'],
@@ -46,5 +49,12 @@ final class LiveBindings
                 'public' => $this->live->isPublic($binding['topic']),
             ], $this->bindings),
         ];
+
+        // A same-origin path the client asks for fresh cursors; without it the client re-reads `_live`.
+        if (Route::has('inertia-live.cursors')) {
+            $live['cursors'] = route('inertia-live.cursors', [], false);
+        }
+
+        return $live;
     }
 }

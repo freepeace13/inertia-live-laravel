@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Freepeace13\InertiaLive\Tests\Fixtures;
+namespace InertiaLive\Tests\Fixtures;
 
-use Freepeace13\InertiaLive\Concerns\EmitsLiveChanges;
+use InertiaLive\Concerns\EmitsLiveChanges;
 use RuntimeException;
 use Spatie\EventSourcing\EventHandlers\Projectors\Projector;
 

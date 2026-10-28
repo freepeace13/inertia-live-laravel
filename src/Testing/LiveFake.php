@@ -2,17 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Freepeace13\InertiaLive\Testing;
+namespace InertiaLive\Testing;
 
 use Closure;
-use Freepeace13\InertiaLive\Change;
-use Freepeace13\InertiaLive\ChangeBuffer;
-use Freepeace13\InertiaLive\Contracts\FlushesChanges;
-use Freepeace13\InertiaLive\LiveManager;
+use InertiaLive\Change;
+use InertiaLive\ChangeBuffer;
+use InertiaLive\Contracts\FlushesChanges;
+use InertiaLive\LiveManager;
 use PHPUnit\Framework\Assert as PHPUnit;
 
 /**
  * Records flushed changes instead of broadcasting them. Installed by `Live::fake()`.
+ *
+ * @internal
  */
 final class LiveFake implements FlushesChanges
 {
@@ -42,6 +44,11 @@ final class LiveFake implements FlushesChanges
     public function isPublic(string $topic): bool
     {
         return $this->manager->isPublic($topic);
+    }
+
+    public function canSubscribe(?object $user, string $topic): bool
+    {
+        return $this->manager->canSubscribe($user, $topic);
     }
 
     public function hasAuthorizerFor(string $topic): bool

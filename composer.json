@@ -19,12 +19,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Freepeace13\\InertiaLive\\": "src/"
-        }
+            "InertiaLive\\": "src/"
+        },
+        "files": ["src/functions.php"]
     },
     "autoload-dev": {
         "psr-4": {
-            "Freepeace13\\InertiaLive\\Tests\\": "tests/"
+            "InertiaLive\\Tests\\": "tests/"
         }
     },
     "config": {
@@ -43,7 +44,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Freepeace13\\InertiaLive\\InertiaLiveServiceProvider"
+                "InertiaLive\\InertiaLiveServiceProvider"
             ]
         }
     }

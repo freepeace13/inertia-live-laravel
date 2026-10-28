@@ -2,15 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Freepeace13\InertiaLive;
+namespace InertiaLive;
 
-use Freepeace13\InertiaLive\Contracts\FlushesChanges;
-use Freepeace13\InertiaLive\Cursor\CacheCursorRepository;
-use Freepeace13\InertiaLive\Cursor\CursorRepository;
 use Illuminate\Database\Events\TransactionRolledBack;
 use Illuminate\Queue\Events\JobFailed;
 use Illuminate\Queue\Events\JobProcessed;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use InertiaLive\Console\InstallCommand;
+use InertiaLive\Contracts\FlushesChanges;
+use InertiaLive\Cursor\CacheCursorRepository;
+use InertiaLive\Cursor\CursorRepository;
+use InertiaLive\Http\CursorsController;
+use InertiaLive\Testing\LiveAssertions;
 use InvalidArgumentException;
 use Spatie\EventSourcing\Events\FinishedEventReplay;
 
@@ -47,11 +51,30 @@ final class InertiaLiveServiceProvider extends ServiceProvider
 
         LiveResponseMacro::register();
 
+        LiveAssertions::register();
+
+        $this->registerCursorsRoute();
+
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 __DIR__.'/../config/inertia-live.php' => config_path('inertia-live.php'),
             ], 'inertia-live-config');
+
+            $this->commands([InstallCommand::class]);
         }
+    }
+
+    private function registerCursorsRoute(): void
+    {
+        if ($this->app->routesAreCached()) {
+            return;
+        }
+
+        $config = $this->app['config'];
+
+        Route::middleware((array) $config->get('inertia-live.cursors.middleware', ['web']))
+            ->get((string) $config->get('inertia-live.cursors.path', 'inertia-live/cursors'), CursorsController::class)
+            ->name('inertia-live.cursors');
     }
 
     /**

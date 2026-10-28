@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use Freepeace13\InertiaLive\Change;
-use Freepeace13\InertiaLive\ChangeBuffer;
+use InertiaLive\Change;
+use InertiaLive\ChangeBuffer;
 
 it('coalesces changes to one per topic', function () {
     $buffer = new ChangeBuffer;

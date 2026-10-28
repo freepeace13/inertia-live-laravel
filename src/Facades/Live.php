@@ -2,20 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Freepeace13\InertiaLive\Facades;
+namespace InertiaLive\Facades;
 
 use Closure;
-use Freepeace13\InertiaLive\ChangeBuffer;
-use Freepeace13\InertiaLive\Contracts\FlushesChanges;
-use Freepeace13\InertiaLive\LiveManager;
-use Freepeace13\InertiaLive\Testing\LiveFake;
 use Illuminate\Support\Facades\Facade;
+use InertiaLive\ChangeBuffer;
+use InertiaLive\Contracts\FlushesChanges;
+use InertiaLive\LiveManager;
+use InertiaLive\Testing\LiveFake;
 
 /**
  * @method static void authorize(string $pattern, Closure $callback)
  * @method static void publicTopic(string $pattern)
- * @method static bool isPublic(string $topic)
- * @method static bool hasAuthorizerFor(string $topic)
+ * @method static bool isPublic(string $topic) Experimental.
+ * @method static bool hasAuthorizerFor(string $topic) Experimental.
+ * @method static bool canSubscribe(?object $user, string $topic)
  * @method static void assertChanged(string $topic, ?array<int, string> $props = null)
  * @method static void assertNothingChangedFor(string $topic)
  * @method static void assertChangedTimes(string $topic, int $times)

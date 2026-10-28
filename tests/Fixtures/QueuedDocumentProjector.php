@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Freepeace13\InertiaLive\Tests\Fixtures;
+namespace InertiaLive\Tests\Fixtures;
 
-use Freepeace13\InertiaLive\Concerns\EmitsLiveChanges;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use InertiaLive\Concerns\EmitsLiveChanges;
 use Spatie\EventSourcing\EventHandlers\Projectors\Projector;
 
 final class QueuedDocumentProjector extends Projector implements ShouldQueue

@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Freepeace13\InertiaLive\Concerns;
+namespace InertiaLive\Concerns;
 
-use Freepeace13\InertiaLive\Change;
-use Freepeace13\InertiaLive\ChangeBuffer;
-use Freepeace13\InertiaLive\ReplayBuffer;
-use Freepeace13\InertiaLive\TopicResolver;
+use InertiaLive\Change;
+use InertiaLive\ChangeBuffer;
+use InertiaLive\ReplayBuffer;
+use InertiaLive\TopicResolver;
 use Spatie\EventSourcing\EventHandlers\Projectors\Projector;
 use Spatie\EventSourcing\Projectionist;
 use Spatie\EventSourcing\StoredEvents\StoredEvent;
@@ -41,6 +41,8 @@ trait EmitsLiveChanges
     }
 
     /**
+     * @experimental May change in a 1.x minor.
+     *
      * @param  list<string>  $props
      */
     protected function liveChanged(string $topic, array $props = []): void

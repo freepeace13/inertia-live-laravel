@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-use Freepeace13\InertiaLive\Broadcasting\LiveChangeBroadcast;
-use Freepeace13\InertiaLive\Change;
-use Freepeace13\InertiaLive\ChangeBuffer;
-use Freepeace13\InertiaLive\ChangeFlusher;
-use Freepeace13\InertiaLive\Facades\Live;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Support\Facades\Event;
+use InertiaLive\Broadcasting\LiveChangeBroadcast;
+use InertiaLive\Change;
+use InertiaLive\ChangeBuffer;
+use InertiaLive\ChangeFlusher;
+use InertiaLive\Facades\Live;
 
 uses(DatabaseTransactions::class);
 

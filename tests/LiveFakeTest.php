@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-use Freepeace13\InertiaLive\Broadcasting\LiveChangeBroadcast;
-use Freepeace13\InertiaLive\ChangeFlusher;
-use Freepeace13\InertiaLive\Facades\Live;
-use Freepeace13\InertiaLive\LiveManager;
-use Freepeace13\InertiaLive\Tests\Fixtures\DocumentProjector;
-use Freepeace13\InertiaLive\Tests\Fixtures\DocumentRenamed;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Route;
+use InertiaLive\Broadcasting\LiveChangeBroadcast;
+use InertiaLive\ChangeFlusher;
+use InertiaLive\Facades\Live;
+use InertiaLive\LiveManager;
+use InertiaLive\Tests\Fixtures\DocumentProjector;
+use InertiaLive\Tests\Fixtures\DocumentRenamed;
 use PHPUnit\Framework\AssertionFailedError;
 use Spatie\EventSourcing\Facades\Projectionist;
 

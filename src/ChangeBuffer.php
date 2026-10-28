@@ -2,8 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Freepeace13\InertiaLive;
+namespace InertiaLive;
 
+/**
+ * @internal
+ */
 final class ChangeBuffer
 {
     /** @var list<array{change: Change, level: int}> */

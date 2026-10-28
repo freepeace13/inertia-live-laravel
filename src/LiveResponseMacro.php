@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Freepeace13\InertiaLive;
+namespace InertiaLive;
 
 use Inertia\Inertia;
 use Inertia\Response;
@@ -11,6 +11,8 @@ use WeakMap;
 
 /**
  * Registers `Inertia\Response::live()`, which binds a topic to page props.
+ *
+ * @internal
  */
 final class LiveResponseMacro
 {

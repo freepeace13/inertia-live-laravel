@@ -2,10 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Freepeace13\InertiaLive;
+namespace InertiaLive;
 
 /**
  * Holds changes produced during a projector replay until the replay finishes.
+ *
+ * @internal
  */
 final class ReplayBuffer
 {

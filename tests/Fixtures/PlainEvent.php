@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Freepeace13\InertiaLive\Tests\Fixtures;
+namespace InertiaLive\Tests\Fixtures;
 
 use Spatie\EventSourcing\StoredEvents\ShouldBeStored;
 
