@@ -1,0 +1,6 @@
+{
+  "ecosystem": "composer",
+  "versionFiles": [],
+  "changelog": "CHANGELOG.md",
+  "tagPrefix": "v"
+}
