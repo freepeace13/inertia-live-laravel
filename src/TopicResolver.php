@@ -2,13 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Freepeace13\InertiaLive;
+namespace InertiaLive;
 
-use Freepeace13\InertiaLive\Attributes\LiveTopic;
+use InertiaLive\Attributes\LiveTopic;
 use InvalidArgumentException;
 use ReflectionClass;
 use Spatie\EventSourcing\StoredEvents\ShouldBeStored;
 
+/**
+ * @internal
+ */
 final class TopicResolver
 {
     /** Valid in Pusher channel names, minus `.` which separates topic segments. */

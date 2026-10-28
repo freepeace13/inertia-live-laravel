@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-use Freepeace13\InertiaLive\Cursor\CursorRepository;
-use Freepeace13\InertiaLive\Facades\Live;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use InertiaLive\Cursor\CursorRepository;
+use InertiaLive\Facades\Live;
 
 beforeEach(function () {
     Route::get('/docs/{uuid}', fn (string $uuid) => Inertia::render('Documents/Show', [
@@ -29,6 +29,13 @@ it('adds bindings with channel, props and cursor', function () {
             'cursor' => $cursor,
             'public' => false,
         ]);
+});
+
+it('does not carry the protocol version in _live', function () {
+    $this->get('/docs/abc', $this->inertia)
+        ->assertOk()
+        ->assertJsonMissingPath('props._live.protocol')
+        ->assertJsonMissingPath('props._live.bindings.0.protocol');
 });
 
 it('defaults the cursor to 0', function () {

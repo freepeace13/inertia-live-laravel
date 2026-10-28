@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-use Freepeace13\InertiaLive\Change;
-use Freepeace13\InertiaLive\ChangeBuffer;
-use Freepeace13\InertiaLive\Tests\Fixtures\DocumentProjector;
-use Freepeace13\InertiaLive\Tests\Fixtures\DocumentRenamed;
-use Freepeace13\InertiaLive\Tests\Fixtures\PlainEvent;
+use InertiaLive\Change;
+use InertiaLive\ChangeBuffer;
+use InertiaLive\Tests\Fixtures\DocumentProjector;
+use InertiaLive\Tests\Fixtures\DocumentRenamed;
+use InertiaLive\Tests\Fixtures\PlainEvent;
 use Spatie\EventSourcing\Facades\Projectionist;
 
 beforeEach(function () {

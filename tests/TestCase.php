@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Freepeace13\InertiaLive\Tests;
+namespace InertiaLive\Tests;
 
-use Freepeace13\InertiaLive\InertiaLiveServiceProvider;
 use Illuminate\Contracts\Config\Repository;
 use Illuminate\Foundation\Application;
 use Inertia\ServiceProvider as InertiaServiceProvider;
+use InertiaLive\InertiaLiveServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 use Spatie\EventSourcing\EventSourcingServiceProvider;
 
@@ -35,6 +35,7 @@ abstract class TestCase extends Orchestra
             $config->set('database.default', 'testing');
             $config->set('cache.default', 'array');
             $config->set('broadcasting.default', 'null');
+            $config->set('app.key', 'base64:'.base64_encode(str_repeat('a', 32)));
         });
     }
 

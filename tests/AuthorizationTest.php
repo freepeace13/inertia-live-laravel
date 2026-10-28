@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-use Freepeace13\InertiaLive\Facades\Live;
-use Freepeace13\InertiaLive\Tests\Fixtures\TestBroadcaster;
 use Illuminate\Support\Facades\Broadcast;
+use InertiaLive\Facades\Live;
+use InertiaLive\Tests\Fixtures\TestBroadcaster;
 
 beforeEach(function () {
     $broadcaster = new TestBroadcaster;

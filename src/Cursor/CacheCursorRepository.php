@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Freepeace13\InertiaLive\Cursor;
+namespace InertiaLive\Cursor;
 
 use Illuminate\Contracts\Cache\Repository;
 use RuntimeException;
@@ -16,6 +16,8 @@ use RuntimeException;
  * expires, the counter restarts above everything issued before, so clients holding an older
  * cursor never mistake a new signal for a stale one. That holds as long as a topic is not
  * signalled faster than a million times per second.
+ *
+ * @internal
  */
 final class CacheCursorRepository implements CursorRepository
 {

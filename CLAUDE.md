@@ -35,13 +35,13 @@ Related repos (siblings): `../inertia-live` (client packages), `../inertia-live-
 - The cursor store must support atomic `increment`; signal versions are per-topic sequences taken at flush time (see `design-decisions.md` in the docs repo). Do not reintroduce stored event ids as versions.
 - Behavior and config changes update the matching doc in the docs repo in the same piece of work (`v1/configuration.md`, `v1/topics.md`, `v1/projectors.md`, and so on). Link to them as `.../inertia-live-docs/blob/main/v1/<file>.md`.
 - `/docs/` is gitignored: generated specs and plans stay local. Put anything that must survive in the decision log, a README or this file.
-- **Open API work for v1:** a response factory to replace `Inertia::render(...)->live(...)` (D-015, candidates in the roadmap). Do not implement one before the API is decided; `->live()` and `LiveResponseMacro` stay as the low-level API.
+- **The response factory** (`InertiaLive::render()` with `live()` props, D-019) is built; `->live()` and `LiveResponseMacro` stay as the low-level API. Items tagged `@internal` or `@experimental` follow the tiers in `v1/stable-api.md` (D-023); keep the tags in step with that list.
 - Match the surrounding code's style; Pint and PHPStan must pass.
 - **No AI attribution** anywhere: no `Co-Authored-By` trailers, no "Generated with" footers, no mentions in commits, PRs, changelogs, docs or code comments.
 
 ## Status
 
-The package is at 0.1.x and the 1.0 scope is not yet defined (D-011). Do not assume which APIs are frozen; check `roadmap.md`.
+The package is at 0.1.x and the 1.0 scope is decided (D-011), but no API is frozen until the contract phase lists it; check `roadmap.md`.
 
 ## Keeping the tracker in sync
 

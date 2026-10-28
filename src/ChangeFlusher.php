@@ -2,22 +2,24 @@
 
 declare(strict_types=1);
 
-namespace Freepeace13\InertiaLive;
+namespace InertiaLive;
 
-use Freepeace13\InertiaLive\Broadcasting\LiveChangeBroadcast;
-use Freepeace13\InertiaLive\Contracts\FlushesChanges;
-use Freepeace13\InertiaLive\Cursor\CursorRepository;
-use Freepeace13\InertiaLive\Jobs\SendTrailingSignal;
 use Illuminate\Cache\RateLimiter;
 use Illuminate\Contracts\Cache\Factory as CacheFactory;
 use Illuminate\Contracts\Config\Repository as Config;
 use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Database\DatabaseManager;
+use InertiaLive\Broadcasting\LiveChangeBroadcast;
+use InertiaLive\Contracts\FlushesChanges;
+use InertiaLive\Cursor\CursorRepository;
+use InertiaLive\Jobs\SendTrailingSignal;
 use Psr\Log\LoggerInterface;
 use Throwable;
 
 /**
  * Turns buffered changes into broadcasts once the database transaction has committed.
+ *
+ * @internal
  */
 final class ChangeFlusher implements FlushesChanges
 {

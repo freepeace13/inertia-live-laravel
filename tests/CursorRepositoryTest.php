@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-use Freepeace13\InertiaLive\Cursor\CacheCursorRepository;
-use Freepeace13\InertiaLive\Cursor\CursorRepository;
 use Illuminate\Contracts\Cache\Repository;
 use Illuminate\Support\Facades\Cache;
+use InertiaLive\Cursor\CacheCursorRepository;
+use InertiaLive\Cursor\CursorRepository;
 
 it('returns 0 for unknown topics', function () {
     expect(app(CursorRepository::class)->get('documents.abc'))->toBe(0);

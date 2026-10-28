@@ -2,15 +2,6 @@
 
 declare(strict_types=1);
 
-use Freepeace13\InertiaLive\Broadcasting\LiveChangeBroadcast;
-use Freepeace13\InertiaLive\Change;
-use Freepeace13\InertiaLive\ChangeBuffer;
-use Freepeace13\InertiaLive\ChangeFlusher;
-use Freepeace13\InertiaLive\Cursor\CursorRepository;
-use Freepeace13\InertiaLive\Facades\Live;
-use Freepeace13\InertiaLive\Jobs\SendTrailingSignal;
-use Freepeace13\InertiaLive\Tests\Fixtures\DocumentProjector;
-use Freepeace13\InertiaLive\Tests\Fixtures\DocumentRenamed;
 use Illuminate\Contracts\Queue\Job;
 use Illuminate\Queue\Events\JobProcessed;
 use Illuminate\Support\Facades\DB;
@@ -18,6 +9,15 @@ use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Queue;
 use Illuminate\Support\Facades\Route;
+use InertiaLive\Broadcasting\LiveChangeBroadcast;
+use InertiaLive\Change;
+use InertiaLive\ChangeBuffer;
+use InertiaLive\ChangeFlusher;
+use InertiaLive\Cursor\CursorRepository;
+use InertiaLive\Facades\Live;
+use InertiaLive\Jobs\SendTrailingSignal;
+use InertiaLive\Tests\Fixtures\DocumentProjector;
+use InertiaLive\Tests\Fixtures\DocumentRenamed;
 use Spatie\EventSourcing\Facades\Projectionist;
 
 beforeEach(function () {

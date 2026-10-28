@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-use Freepeace13\InertiaLive\Broadcasting\LiveChangeBroadcast;
-use Freepeace13\InertiaLive\Change;
-use Freepeace13\InertiaLive\ChangeBuffer;
-use Freepeace13\InertiaLive\Contracts\FlushesChanges;
-use Freepeace13\InertiaLive\Facades\Live;
-use Freepeace13\InertiaLive\Tests\Fixtures\DocumentProjector;
-use Freepeace13\InertiaLive\Tests\Fixtures\DocumentRenamed;
-use Freepeace13\InertiaLive\Tests\Fixtures\QueuedDocumentProjector;
 use Illuminate\Support\Facades\Event;
+use InertiaLive\Broadcasting\LiveChangeBroadcast;
+use InertiaLive\Change;
+use InertiaLive\ChangeBuffer;
+use InertiaLive\Contracts\FlushesChanges;
+use InertiaLive\Facades\Live;
+use InertiaLive\Tests\Fixtures\DocumentProjector;
+use InertiaLive\Tests\Fixtures\DocumentRenamed;
+use InertiaLive\Tests\Fixtures\QueuedDocumentProjector;
 use Spatie\EventSourcing\Facades\Projectionist;
 
 beforeEach(function () {

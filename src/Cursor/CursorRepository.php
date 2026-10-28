@@ -2,11 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Freepeace13\InertiaLive\Cursor;
+namespace InertiaLive\Cursor;
 
 /**
  * Per-topic sequence numbers. Each broadcast signal takes the next number, so a page that
  * renders with the current number can tell exactly which later signals it has not seen.
+ *
+ * @experimental May change in a 1.x minor.
  */
 interface CursorRepository
 {

@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-use Freepeace13\InertiaLive\ResolvedTopic;
-use Freepeace13\InertiaLive\Tests\Fixtures\BrokenTemplate;
-use Freepeace13\InertiaLive\Tests\Fixtures\DocumentMoved;
-use Freepeace13\InertiaLive\Tests\Fixtures\DocumentRenamed;
-use Freepeace13\InertiaLive\Tests\Fixtures\PlainEvent;
-use Freepeace13\InertiaLive\TopicResolver;
+use InertiaLive\ResolvedTopic;
+use InertiaLive\Tests\Fixtures\BrokenTemplate;
+use InertiaLive\Tests\Fixtures\DocumentMoved;
+use InertiaLive\Tests\Fixtures\DocumentRenamed;
+use InertiaLive\Tests\Fixtures\PlainEvent;
+use InertiaLive\TopicResolver;
 
 it('resolves a topic template from event properties', function () {
     $topics = (new TopicResolver)->forEvent(new DocumentRenamed('abc', 'Q4'));

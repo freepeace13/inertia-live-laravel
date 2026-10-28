@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-use Freepeace13\InertiaLive\Broadcasting\LiveChangeBroadcast;
-use Freepeace13\InertiaLive\Change;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\PrivateChannel;
+use InertiaLive\Broadcasting\LiveChangeBroadcast;
+use InertiaLive\Change;
 
 it('broadcasts on a private channel by default', function () {
     $broadcast = new LiveChangeBroadcast(new Change('documents.abc', ['document']), 12);
@@ -31,8 +31,8 @@ it('honours a custom channel prefix', function () {
         ->toBe('private-pulse.documents.abc');
 });
 
-it('carries only topic, version and prop keys', function () {
+it('carries only topic, version, prop keys and the protocol version', function () {
     $payload = (new LiveChangeBroadcast(new Change('documents.abc', ['document', 'activity']), 12))->broadcastWith();
 
-    expect($payload)->toBe(['topic' => 'documents.abc', 'version' => 12, 'props' => ['document', 'activity']]);
+    expect($payload)->toBe(['topic' => 'documents.abc', 'version' => 12, 'props' => ['document', 'activity'], 'protocol' => 1]);
 });

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Freepeace13\InertiaLive\InertiaLiveServiceProvider;
+use InertiaLive\InertiaLiveServiceProvider;
 
 it('rejects an empty channel prefix', function () {
     config(['inertia-live.channel_prefix' => '']);

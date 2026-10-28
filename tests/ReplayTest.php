@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-use Freepeace13\InertiaLive\Broadcasting\LiveChangeBroadcast;
-use Freepeace13\InertiaLive\ChangeBuffer;
-use Freepeace13\InertiaLive\Cursor\CursorRepository;
-use Freepeace13\InertiaLive\Facades\Live;
-use Freepeace13\InertiaLive\Tests\Fixtures\DocumentProjector;
-use Freepeace13\InertiaLive\Tests\Fixtures\DocumentRenamed;
 use Illuminate\Support\Facades\Event;
+use InertiaLive\Broadcasting\LiveChangeBroadcast;
+use InertiaLive\ChangeBuffer;
+use InertiaLive\Cursor\CursorRepository;
+use InertiaLive\Facades\Live;
+use InertiaLive\Tests\Fixtures\DocumentProjector;
+use InertiaLive\Tests\Fixtures\DocumentRenamed;
 use Spatie\EventSourcing\Facades\Projectionist;
 use Spatie\EventSourcing\StoredEvents\Models\EloquentStoredEvent;
 

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Freepeace13\InertiaLive\Attributes;
+namespace InertiaLive\Attributes;
 
 use Attribute;
 
